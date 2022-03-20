@@ -1,0 +1,72 @@
+SQL> create table shoppingmall(billid number(10),cname varchar2(10),phno number(10),billamount number(10));
+
+Table created.
+
+SQL> create sequence billid
+  2  start with 1001
+  3  increment by 1
+  4  minvalue 1001
+  5  maxvalue 1050
+  6  cycle;
+
+Sequence created.
+
+SQL> insert into shoppingmall values(billid.nextval,'divya',76456,2000);
+
+1 row created.
+
+SQL> insert into shoppingmall values(billid.nextval,'madhu',87548,4000);
+
+1 row created.
+
+SQL> insert into shoppingmall values(billid.nextval,'sravani',67548,2000);
+
+1 row created.
+
+SQL> insert into shoppingmall values(billid.nextval,'chaitu',34548,1500);
+
+1 row created.
+
+SQL> insert into shoppingmall values(billid.nextval,'raju',74556,3000);
+
+1 row created.
+
+SQL> select * from shoppingmall;
+
+    BILLID CNAME            PHNO BILLAMOUNT
+---------- ---------- ---------- ----------
+      1001 divya        76456       2000
+      1002 madhu        87548       4000
+      1003 sravani      67548       2000
+      1004 chaitu       34548       1500
+      1005 raju         74556      3000
+
+SQL> select sum(billamount) from shoppingmall;
+
+SUM(BILLAMOUNT)
+---------------
+          12500
+
+SQL> select max(billamount) from shoppingmall;
+
+MAX(BILLAMOUNT)
+---------------
+           4000
+
+SQL> select min(billamount) from shoppingmall;
+
+MIN(BILLAMOUNT)
+---------------
+           1500
+
+SQL> select avg(billamount) from shoppingmall;
+
+AVG(BILLAMOUNT)
+---------------
+           2500
+
+SQL> select count(*) from shoppingmall;
+
+  COUNT(*)
+----------
+         5
